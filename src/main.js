@@ -1,21 +1,21 @@
-const {Blockchain, Transaction} = require('./blockchain');
+const { Blockchain, Transaction } = require("./blockchain");
+
+const EC = require("elliptic").ec;
+const ec = new EC("secp256k1");
+
+const myKey = ec.keyFromPrivate("PRIVATE_KEY");
+const myWalletAddress = myKey.getPublic("hex");
 
 let TWXIIVECoin = new Blockchain();
-TWXIIVECoin.createTransaction(new Transaction("address1", "address2", 100));
-TWXIIVECoin.createTransaction(new Transaction("address2", "address1", 50));
+
+const tx1 = new Transaction(myWalletAddress, "PUBLIC_KEY_RECIPIENT", 10);
+tx1.signTransaction(myKey);
+TWXIIVECoin.addTransaction(tx1);
 
 console.log("\n Starting the miner..");
-TWXIIVECoin.minePendingTransactions("adams-address");
+TWXIIVECoin.minePendingTransactions(myWalletAddress);
 
 console.log(
   "\nBalance of adam is",
-  TWXIIVECoin.getBalanceOfAddress("adams-address")
-);
-
-console.log("\n Starting the miner..");
-TWXIIVECoin.minePendingTransactions("adams-address");
-
-console.log(
-  "\nBalance of adam is",
-  TWXIIVECoin.getBalanceOfAddress("adams-address")
+  TWXIIVECoin.getBalanceOfAddress(myWalletAddress);
 );

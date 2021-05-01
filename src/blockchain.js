@@ -12,22 +12,22 @@ class Transaction {
   }
 
   signTransaction(signingKey) {
-    if(signingKey.getPublic('hex') !== this.fromAddress) {
-      throw new Error('You cannot sign transactions for other wallets!')
+    if (signingKey.getPublic("hex") !== this.fromAddress) {
+      throw new Error("You cannot sign transactions for other wallets!");
     }
     const hashTx = this.calculateHash();
-    const sig = signingKey.sign(hashTx, 'base64');
-    this.signature = sig.toDER('HEX');
+    const sig = signingKey.sign(hashTx, "base64");
+    this.signature = sig.toDER("HEX");
   }
 
   isValid() {
-    if(this.fromAddress === null) return true;
+    if (this.fromAddress === null) return true;
 
-    if(!this.signature || this.signature.length === 0) {
-      throw new Error('No signature in this transaction!');
+    if (!this.signature || this.signature.length === 0) {
+      throw new Error("No signature in this transaction!");
     }
 
-    const publicKey = ec.keyFromPublic(this.fromAddress, 'hex');
+    const publicKey = ec.keyFromPublic(this.fromAddress, "hex");
     return publicKey.verify(this.calculateHash(), this.signature);
   }
 }
@@ -63,8 +63,8 @@ class Block {
   }
 
   hasValidTransaction() {
-    for(const tx of this.transactions) {
-      if(!tx.isValid()) {
+    for (const tx of this.transactions) {
+      if (!tx.isValid()) {
         return false;
       }
     }
@@ -90,7 +90,11 @@ class Blockchain {
   }
 
   minePendingTransactions(miningRewardAddress) {
-    const rewardTx = new Transaction(null, miningRewardAddress, this.miningReward);
+    const rewardTx = new Transaction(
+      null,
+      miningRewardAddress,
+      this.miningReward
+    );
     let block = new Block(Date.now(), this.pendingTransactions);
     block.mineBlock(this.difficulty);
 
@@ -102,7 +106,14 @@ class Blockchain {
     ];
   }
 
-  createTransaction(transaction) {
+  addTransaction(transaction) {
+    if (!transaction.fromAddress || !transaction.toAddress) {
+      throw new Error("Transaction must include from and to address");
+    }
+
+    if (!transaction.isValid()) {
+      throw new Error("Cannot add invalid transaction to chain");
+    }
     this.pendingTransactions.push(transaction);
   }
 
