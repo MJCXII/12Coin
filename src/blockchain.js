@@ -19,6 +19,17 @@ class Transaction {
     const sig = signingKey.sign(hashTx, 'base64');
     this.signature = sig.toDER('HEX');
   }
+
+  isValid() {
+    if(this.fromAddress === null) return true;
+
+    if(!this.signature || this.signature.length === 0) {
+      throw new Error('No signature in this transaction!');
+    }
+
+    const publicKey = ec.keyFromPublic(this.fromAddress, 'hex');
+    return publicKey.verify(this.calculateHash(), this.signature);
+  }
 }
 
 class Block {
@@ -50,6 +61,16 @@ class Block {
 
     console.log("BLOCK MINED: " + this.hash);
   }
+
+  hasValidTransaction() {
+    for(const tx of this.transactions) {
+      if(!tx.isValid()) {
+        return false;
+      }
+    }
+
+    return true;
+  }
 }
 
 class Blockchain {
@@ -69,6 +90,7 @@ class Blockchain {
   }
 
   minePendingTransactions(miningRewardAddress) {
+    const rewardTx = new Transaction(null, miningRewardAddress, this.miningReward);
     let block = new Block(Date.now(), this.pendingTransactions);
     block.mineBlock(this.difficulty);
 
