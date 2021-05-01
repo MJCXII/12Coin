@@ -20,7 +20,7 @@ class Block {
             this.hash = this.calculateHash();
         }
 
-        console.log("Block mined: " + this.hash);
+        console.log("BLOCK MINED: " + this.hash);
     } 
 }
 
@@ -64,7 +64,13 @@ class Blockchain {
 
 let TWXIIVECoin = new Blockchain();
 
-console.log('Mining Block 1..');
-TWXIIVECoin.addBlock(new Block(1, "12/12/2012", { amount: 12 }));
-console.log('Mining Block 2..');
-TWXIIVECoin.addBlock(new Block(1, "01/05/2021", { amount: 12 }));
+// console.log('Mining Block 1..');
+// TWXIIVECoin.addBlock(new Block(1, "12/12/2012", { amount: 12 }));
+// console.log('Mining Block 2..');
+// TWXIIVECoin.addBlock(new Block(1, "01/05/2021", { amount: 12 }));
+// console.log('Mining Block 3..');
+// TWXIIVECoin.addBlock(new Block(1, "01/05/2021", { amount: 12 }));
+// console.log('Mining Block 4..');
+// TWXIIVECoin.addBlock(new Block(1, "01/05/2021", { amount: 12 }));
+// console.log('Mining Block 5..');
+// TWXIIVECoin.addBlock(new Block(1, "01/05/2021", { amount: 12 }));
