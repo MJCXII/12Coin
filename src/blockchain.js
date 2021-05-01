@@ -6,6 +6,19 @@ class Transaction {
     this.toAddress = toAddress;
     this.amount = amount;
   }
+
+  calculateHash() {
+    return SHA256(this.fromAddress + this.toAddress + this.amount).toString();
+  }
+
+  signTransaction(signingKey) {
+    if(signingKey.getPublic('hex') !== this.fromAddress) {
+      throw new Error('You cannot sign transactions for other wallets!')
+    }
+    const hashTx = this.calculateHash();
+    const sig = signingKey.sign(hashTx, 'base64');
+    this.signature = sig.toDER('HEX');
+  }
 }
 
 class Block {
@@ -105,33 +118,5 @@ class Blockchain {
   }
 }
 
-let TWXIIVECoin = new Blockchain();
-TWXIIVECoin.createTransaction(new Transaction("address1", "address2", 100));
-TWXIIVECoin.createTransaction(new Transaction("address2", "address1", 50));
-
-console.log("\n Starting the miner..");
-TWXIIVECoin.minePendingTransactions("adams-address");
-
-console.log(
-  "\nBalance of adam is",
-  TWXIIVECoin.getBalanceOfAddress("adams-address")
-);
-
-console.log("\n Starting the miner..");
-TWXIIVECoin.minePendingTransactions("adams-address");
-
-console.log(
-  "\nBalance of adam is",
-  TWXIIVECoin.getBalanceOfAddress("adams-address")
-);
-
-// console.log('Mining Block 1..');
-// TWXIIVECoin.addBlock(new Block(1, "12/12/2012", { amount: 12 }));
-// console.log('Mining Block 2..');
-// TWXIIVECoin.addBlock(new Block(1, "01/05/2021", { amount: 12 }));
-// console.log('Mining Block 3..');
-// TWXIIVECoin.addBlock(new Block(1, "01/05/2021", { amount: 12 }));
-// console.log('Mining Block 4..');
-// TWXIIVECoin.addBlock(new Block(1, "01/05/2021", { amount: 12 }));
-// console.log('Mining Block 5..');
-// TWXIIVECoin.addBlock(new Block(1, "01/05/2021", { amount: 12 }));
+module.exports.Blockchain = Blockchain;
+module.exports.Transaction = Transaction;
