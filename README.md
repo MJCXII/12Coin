@@ -19,7 +19,7 @@ TWXIIVECoin (XII) is a peer-to-peer cryptocurrency set up by Max Clarke and Jaso
 **[Check it out here.](#)** You can create transactions, mine blocks and explore your own blockchain.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
-Get a copy of the SavjeeCoin front-end running on your local machine (for playing around, testing or development).
+Get a copy of the TWXIIVECoin front-end running on your local machine (for playing around, testing or development).
 
 ```
 git clone https://github.com/MJCXII/TWXIIVECoin.git
