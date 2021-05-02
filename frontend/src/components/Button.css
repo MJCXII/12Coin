@@ -1,0 +1,20 @@
+:root {
+  --primary: rgb(78, 78, 78);
+}
+
+.btn {
+  padding: 8px 15px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  background-color: var(--primary);
+}
+
+.btn:hover {
+  background-color: rgb(78, 78, 78, 0.5);
+  color: white;
+  border-radius: 4px;
+}
