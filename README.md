@@ -71,7 +71,7 @@ console.log('Private key:', myKey.getPrivate('hex'));
 Now you can create a new instance of a Blockchain:
 
 ```js
-const {Blockchain, Transaction} = require('savjeecoin');
+const {Blockchain, Transaction} = require('TWXIIVE');
 
 const myChain = new Blockchain();
 ```
