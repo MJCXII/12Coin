@@ -2,6 +2,12 @@
 
 🚀 Developing a new Cryptocurrency with Blockchain
 
+## What is TWXIIVECoin?
+
+TWXIIVECoin is open and available to everyone.
+All you need is a wallet to take part in this journey.
+
+TWXIIVECoin (XII) is a peer-to-peer cryptocurrency set up by Max Clarke and Jason Rowsell.
 
 <details>
   <summary>:zap: <strong>User Interface</strong></summary>
