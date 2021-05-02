@@ -5,7 +5,7 @@
 
 <details>
   <summary>:zap: <strong>User Interface</strong></summary>
-  
+  <br/>
   React application that allows you to interact with a blockchain. You can see the blocks on chain, see transaction within them and even create new transactions and mine blocks.
 
 ## 👀 Live demo
@@ -35,7 +35,7 @@ At this point the application should be running on your machine on [http://local
 
 <details>
   <summary>:zap: <strong>Backend</strong></summary>
-
+  
 ## Features
 
 * Proof-of-work algorithm
