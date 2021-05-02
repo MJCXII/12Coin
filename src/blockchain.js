@@ -2,6 +2,7 @@ const SHA256 = require("crypto-js/sha256");
 const EC = require('elliptic').ec;
 const ec = new EC('secp256k1');
 
+
 class Transaction {
   constructor(fromAddress, toAddress, amount) {
     this.fromAddress = fromAddress;
