@@ -41,11 +41,11 @@ function Navbar() {
             </Link>
             {dropdown && <Dropdown />}
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Link to="/sign-up" className="nav-links" onClick={closeMobileMenu}>
               Sign Up <i className="nav-links-mobile" />
             </Link>
-          </li>
+          </li> */}
         </ul>
         <Button />
       </nav>
