@@ -2,13 +2,16 @@
   "name": "twxiivecoin",
   "version": "1.0.0",
   "description": "TWXIIVECoin Crypto Blockchain",
-  "main": "main.js",
+  "main": "src/main.ts",
   "dependencies": {
     "crypto-js": "^4.0.0",
-    "elliptic": "^6.5.4"
+    "elliptic": "^6.5.4",
+    "typescript": "^4.2.4"
   },
   "devDependencies": {},
   "scripts": {
+    "start": "tsc && node src/main.ts",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
