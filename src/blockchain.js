@@ -78,7 +78,7 @@ class Block {
 class Blockchain {
   constructor() {
     this.chain = [this.createGenesisBlock()];
-    this.difficulty = 1;
+    this.difficulty = 6;
     this.pendingTransactions = [];
     this.miningReward = 100;
   }
@@ -158,3 +158,5 @@ class Blockchain {
 
 module.exports.Blockchain = Blockchain;
 module.exports.Transaction = Transaction;
+
+
