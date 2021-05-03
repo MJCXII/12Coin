@@ -8,6 +8,8 @@ import {
   NavMenu,
   NavItem,
   NavLinks,
+  NavBtn,
+  NavBtnLink,
 } from "./NavbarElements";
 
 const App = () => {
@@ -21,9 +23,21 @@ const App = () => {
           </MobileIcon>
           <NavMenu>
             <NavItem>
-              <NavLinks to="about">About TWXIIVE</NavLinks>
+              <NavLinks to="use">Use TWXIIVE</NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks to="learn">Learn</NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks to="community">Community</NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks to="signup">Sign Up</NavLinks>
             </NavItem>
           </NavMenu>
+          <NavBtn>
+            <NavBtnLink to="/signin">Sign In</NavBtnLink>
+          </NavBtn>
         </NavbarContainer>
       </Nav>
     </>
