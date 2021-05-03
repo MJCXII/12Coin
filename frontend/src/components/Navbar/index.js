@@ -12,13 +12,13 @@ import {
   NavBtnLink,
 } from "./NavbarElements";
 
-const App = () => {
+const Navbar = ({ toggle }) => {
   return (
     <>
       <Nav>
         <NavbarContainer>
           <NavLogo to="/">TWXIIVE</NavLogo>
-          <MobileIcon>
+          <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
           <NavMenu>
@@ -44,4 +44,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Navbar;
