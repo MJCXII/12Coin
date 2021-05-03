@@ -98,3 +98,5 @@ To finalize this transaction, we have to mine a new block. We give this method o
 myChain.minePendingTransactions(myKey.getPublic('hex'));
 ```
 </details>
+
+*Notes: Working on React site on 'frontend' branch, navbar progress*
