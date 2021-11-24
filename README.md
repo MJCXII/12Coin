@@ -1,14 +1,14 @@
-﻿# TWXIIVECoin
+﻿# 12Coin
 
 🚀 Developing a new Cryptocurrency with Blockchain
 
-## What is TWXIIVECoin?
+## What is 12Coin?
 
-TWXIIVECoin is open and available to everyone.
+12Coin is open and available to everyone.
 <br/>
 All you need is a wallet to take part in this journey.
 
-TWXIIVECoin (XII) is a peer-to-peer cryptocurrency set up by Max Clarke and Jason Rowsell.
+12Coin (XII) is a peer-to-peer cryptocurrency set up by Max Clarke and Jason Rowsell.
 
 <details>
   <summary>:zap: <strong>User Interface</strong></summary>
@@ -22,12 +22,12 @@ TWXIIVECoin (XII) is a peer-to-peer cryptocurrency set up by Max Clarke and Jaso
 Get a copy of the TWXIIVECoin front-end running on your local machine (for playing around, testing or development).
 
 ```
-git clone https://github.com/MJCXII/TWXIIVECoin.git
+git clone https://github.com/MJCXII/12Coin.git
 ```
 
 Install the dependencies:
 ```
-cd TWXIIVECoin
+cd 12Coin
 npm install
 ```
 
@@ -54,7 +54,7 @@ At this point the application should be running on your machine on [http://local
 
 ### Install library
 ```
-npm install --save TWXIIVECoin
+npm install --save 12Coin
 ```
 
 ### Generate a keypair
@@ -78,7 +78,7 @@ console.log('Private key:', myKey.getPrivate('hex'));
 Now you can create a new instance of a Blockchain:
 
 ```js
-const {Blockchain, Transaction} = require('TWXIIVECoin');
+const {Blockchain, Transaction} = require('12Coin');
 
 const myChain = new Blockchain();
 ```
